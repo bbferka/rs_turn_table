@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.cpp</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>rs_saveClusterCloudsAndImages</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>SaveClusterCloudsAndImages</name>
+    <description>Store images of clusters for turn table</description>
+    <version>1.0</version>
+    <vendor/>
+    <configurationParameters>
+
+        <configurationParameter>
+            <name>objectName</name>
+            <type>String</type>
+            <multiValued>false</multiValued>
+            <mandatory>true</mandatory>
+        </configurationParameter>
+
+        <configurationParameter>
+            <name>angle</name>
+            <type>Integer</type>
+            <multiValued>false</multiValued>
+            <mandatory>true</mandatory>
+        </configurationParameter>
+
+        <configurationParameter>
+            <name>padding</name>
+            <type>Integer</type>
+            <multiValued>false</multiValued>
+            <mandatory>true</mandatory>
+        </configurationParameter>
+
+    </configurationParameters>
+
+    <configurationParameterSettings>
+
+        <nameValuePair>
+            <name>objectName</name>
+            <value>
+                <string>Drill</string>
+            </value>
+        </nameValuePair>
+
+        <nameValuePair>
+            <name>angle</name>
+            <value>
+                <integer>30</integer>
+            </value>
+        </nameValuePair>
+
+        <nameValuePair>
+            <name>padding</name>
+            <value>
+                <integer>0</integer>
+            </value>
+        </nameValuePair>
+
+    </configurationParameterSettings>
+
+    <typeSystemDescription>
+      <imports>
+        <import location="../typesystem/all_types.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs/>
+        <languagesSupported>
+          <language>x-unspecified</language>
+        </languagesSupported>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>
