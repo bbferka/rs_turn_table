@@ -18,7 +18,13 @@ configure_file(${RS_PROJECT_CONFIG} ${PROJECT_SOURCE_DIR}/cmake/${PROJECT_NAME}_
 ## Find all include directories                                               ##
 ################################################################################
 find_include_dirs(RS_INCLUDE_DIRS_LIST)
-catkin_package()
+
+catkin_package(
+  INCLUDE_DIRS ${RS_INCLUDE_DIRS_LIST}
+  LIBRARIES ${RS_LIBS}
+  CATKIN_DEPENDS robosherlock
+  CFG_EXTRAS ${PROJECT_NAME}_config.cmake
+)
 ################################################################################
 ## Package dependencies                                                       ##
 ################################################################################
