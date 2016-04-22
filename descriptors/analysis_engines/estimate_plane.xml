@@ -67,9 +67,6 @@
     <delegateAnalysisEngine key="PCLFeatureExtractor">
       <import location="../../../robosherlock/descriptors/annotators/annotation/PCLVFHFeatureExtractor.xml"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="ParticleFilterTracking">
-      <import location="../../../robosherlock/descriptors/annotators/tracker/ParticleFilterTracking.xml"/>
-    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="PlaneAnnotator">
       <import location="../../../robosherlock/descriptors/annotators/detection/PlaneAnnotator.xml"/>
     </delegateAnalysisEngine>
