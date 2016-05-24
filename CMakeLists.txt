@@ -58,6 +58,7 @@ find_additional_files()
 #add_subdirectory(src/xxx)
 
 rs_add_library(rs_moveTurnTable src/MoveTurnTable.cpp)
+add_dependencies(rs_moveTurnTable scanning_table_msgs_gencpp)
 target_link_libraries(rs_moveTurnTable ${catkin_LIBRARIES})
 
 rs_add_library(rs_saveClusterCloudsAndImages src/SaveClusterCloudsAndImages.cpp)
