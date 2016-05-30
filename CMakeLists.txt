@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(rs_turn_table)
-find_package(catkin REQUIRED robosherlock)
+find_package(catkin REQUIRED robosherlock scanning_table_msgs)
 ################################################################################
 ## Constants for project                                                      ##
 ################################################################################
