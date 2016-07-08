@@ -118,8 +118,8 @@ public:
     rs::Scene scene = cas.getScene();
     std::vector<rs::Cluster> clusters;
     pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloudPtr(new pcl::PointCloud<pcl::PointXYZRGBA>());
-    cas.get(VIEW_COLOR_IMAGE, color);
-    cas.get(VIEW_DEPTH_IMAGE, depth);
+    cas.get(VIEW_COLOR_IMAGE_HD, color);
+    cas.get(VIEW_DEPTH_IMAGE_HD, depth);
     cas.get(VIEW_CLOUD, *cloudPtr);
 
     scene.identifiables.filter(clusters);
@@ -129,12 +129,12 @@ public:
 
       cv::Mat mask;
       cv::Rect roi;
-      rs::conversion::from(image_rois.roi(), roi);
+      rs::conversion::from(image_rois.roi_hires(), roi);
       roi.x -= padding;
       roi.y -= padding;
       roi.height += 2 * padding;
       roi.width += 2 * padding;
-      rs::conversion::from(image_rois.mask(), mask);
+      rs::conversion::from(image_rois.mask_hires(), mask);
 
       std::stringstream ss_rgb;
       std::stringstream ss_depth;
@@ -151,7 +151,11 @@ public:
       cv::imwrite(ss_rgb.str(), cv::Mat(color, roi));
       cv::imwrite(ss_depth.str(), cv::Mat(depth, roi));
       //todo: make mask the same size as color and depth
-      cv::imwrite(ss_mask.str(), mask);
+
+      cv::Scalar value(0,0,0);
+      cv::Mat paddedMask;
+      cv::copyMakeBorder(mask,paddedMask,padding,padding,padding,padding,cv::BORDER_CONSTANT,value);
+      cv::imwrite(ss_mask.str(), paddedMask);
 
       filestream.open(ss_location.str(), std::ios::out);
       filestream << roi.x << "," << roi.y;

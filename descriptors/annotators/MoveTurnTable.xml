@@ -19,7 +19,7 @@
         <nameValuePair>
             <name>angularResolution</name>
             <value>
-                <float>30</float>
+                <float>5</float>
             </value>
         </nameValuePair>
     </configurationParameterSettings>
