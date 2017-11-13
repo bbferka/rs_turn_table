@@ -174,7 +174,7 @@ public:
         ei.setInputCloud(cloudPtr);
         ei.setIndices(indices);
         ei.filter(*cluster_cloud);
-        pcl::io::savePCDFileBinaryCompressed(ss_pcd.str(), *cluster_cloud);
+        //pcl::io::savePCDFileBinaryCompressed(ss_pcd.str(), *cluster_cloud);
       }
     }
     idx++;

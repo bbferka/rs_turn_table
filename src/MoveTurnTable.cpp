@@ -40,7 +40,7 @@
 #include <rs/utils/exception.h>
 #include <rs/utils/output.h>
 
-#include <scanning_table_msgs/scanning_tableAction.h>
+#include <iai_scanning_table_msgs/scanning_tableAction.h>
 #include <actionlib/client/simple_action_client.h>
 
 
@@ -50,7 +50,7 @@ using namespace uima;
 
 class MoveTurnTable: public Annotator
 {
-  typedef actionlib::SimpleActionClient<scanning_table_msgs::scanning_tableAction> ActionClient;
+  typedef actionlib::SimpleActionClient<iai_scanning_table_msgs::scanning_tableAction> ActionClient;
 private:
   float angularResolution;
   float currentPosition;
@@ -91,9 +91,10 @@ public:
     if(currentPosition < 360)
     {
       outInfo("Angle Command: " << angularResolution);
-      scanning_table_msgs::scanning_tableActionGoal goal;
+      iai_scanning_table_msgs::scanning_tableActionGoal goal;
       goal.goal.angle = currentPosition * M_PI / 180;
       goal.goal.release_brake_timeout = 20.0;
+      goal.goal.apply_modulo = true;
       aClient->sendGoal(goal.goal);
       aClient->waitForResult(ros::Duration(20.0));
       if(aClient->getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
