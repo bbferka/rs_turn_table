@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(rs_turn_table)
-find_package(catkin REQUIRED robosherlock scanning_table_msgs)
+find_package(catkin REQUIRED robosherlock iai_scanning_table_msgs)
 ################################################################################
 ## Constants for project                                                      ##
 ################################################################################
@@ -22,7 +22,7 @@ find_include_dirs(RS_INCLUDE_DIRS_LIST)
 catkin_package(
   INCLUDE_DIRS ${RS_INCLUDE_DIRS_LIST}
   LIBRARIES ${RS_LIBS}
-  CATKIN_DEPENDS robosherlock
+  CATKIN_DEPENDS robosherlock iai_scanning_table_msgs
   CFG_EXTRAS ${PROJECT_NAME}_config.cmake
 )
 ################################################################################
@@ -58,7 +58,7 @@ find_additional_files()
 #add_subdirectory(src/xxx)
 
 rs_add_library(rs_moveTurnTable src/MoveTurnTable.cpp)
-add_dependencies(rs_moveTurnTable scanning_table_msgs_gencpp)
+add_dependencies(rs_moveTurnTable iai_scanning_table_msgs_gencpp)
 target_link_libraries(rs_moveTurnTable ${catkin_LIBRARIES})
 
 rs_add_library(rs_saveClusterCloudsAndImages src/SaveClusterCloudsAndImages.cpp)
