@@ -14,4 +14,4 @@ RoboSherlock modules for simplifying recording from a turn table
   * files are saved in the `rs_turn_table/data/[obj_name]` folder
 
 ## Necessary packages
-The iai_scanning_table package can currently be found here: https://github.com/code-iai/iai_robot_drivers.git .
+The iai_scanning_table package can currently be found here: https://github.com/code-iai/iai_robot_drivers.git . Please take care that iai_robot_drivers might come with its own dependencies.
